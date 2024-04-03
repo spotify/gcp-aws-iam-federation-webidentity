@@ -38,6 +38,7 @@ provider "google" {
 provider "aws" {
   alias   = "aws"
   region  = var.aws_region
+  profile = var.aws_profile
 }
 ########################################################################
 # Define variables
@@ -73,6 +74,11 @@ variable "aws_region" {
    type        = string
    description = "GCP region where resources are created."
    default = "eu-west-1"
+}
+
+variable "aws_profile" {
+   type        = string
+   description = "This is the local AWS profile used to create resources, e.g. Administrator-AWS_ACCOUNT_ID. It also needs an active STS token."
 }
 ########################################################################
 # Define outputs
